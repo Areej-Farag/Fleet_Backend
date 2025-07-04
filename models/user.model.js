@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-// updates 
+const { v4: uuidv4 } = require('uuid');
+
 const paymentMethodSchema = new mongoose.Schema({
   type: String,
   cardNumber: String,
@@ -33,7 +34,11 @@ const preferencesSchema = new mongoose.Schema({
 }, { _id: false });
 
 const userSchema = new mongoose.Schema({
-  id: { type: String, unique: true }, 
+id: {
+  type: String,
+  unique: true,
+  default: uuidv4, // <- generate uuid by default
+},
   name: { type: String },
   email: { type: String, required: true, unique: true },
   password: { type: String , required: true , minLength: 8 }, 

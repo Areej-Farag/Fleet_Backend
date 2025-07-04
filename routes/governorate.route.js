@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const governorateController = require('../controllers/governorate.controller');
+const governorateController = require('../controllers/governorate.Controller');
 
 router.post('/', governorateController.createGovernorate);
 
